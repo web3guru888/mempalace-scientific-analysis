@@ -1,0 +1,42 @@
+[
+  {
+    "cycle": 1,
+    "engine_cycle": 3309,
+    "elapsed_seconds": 53.1,
+    "total_discoveries": 16,
+    "new_discoveries": 3,
+    "palace_drawers": 22,
+    "kg_triples": 113,
+    "kg_entities": 56,
+    "domains": {
+      "Epidemiology": 3,
+      "Economics": 2,
+      "Climate": 3,
+      "Cryptography": 1,
+      "Astrophysics": 7
+    },
+    "timestamp": "2026-04-10T09:49:18.749289+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 1,
+    "elapsed_seconds": 53.1,
+    "status": "error",
+    "error": "sequence index must be integer, not 'slice'",
+    "timestamp": "2026-04-10T09:49:18.749652+00:00"
+  },
+  {
+    "cycle": 2,
+    "elapsed_seconds": 83.7,
+    "status": "error",
+    "error": "'total_discoveries'",
+    "timestamp": "2026-04-10T09:50:47.499212+00:00"
+  },
+  {
+    "cycle": 3,
+    "elapsed_seconds": 15.9,
+    "status": "error",
+    "error": "'total_discoveries'",
+    "timestamp": "2026-04-10T09:51:08.418967+00:00"
+  }
+]

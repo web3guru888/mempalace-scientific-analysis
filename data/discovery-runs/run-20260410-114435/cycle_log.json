@@ -1,0 +1,515 @@
+[
+  {
+    "cycle": 1,
+    "engine_cycle": 3416,
+    "elapsed_seconds": 79.0,
+    "total_discoveries": 190,
+    "new_discoveries": 5,
+    "palace_drawers": 195,
+    "kg_triples": 1043,
+    "kg_entities": 297,
+    "domains": {
+      "Epidemiology": 26,
+      "Economics": 25,
+      "Climate": 26,
+      "Cryptography": 11,
+      "Astrophysics": 102
+    },
+    "timestamp": "2026-04-10T11:46:29.728696+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 2,
+    "engine_cycle": 3417,
+    "elapsed_seconds": 63.0,
+    "total_discoveries": 194,
+    "new_discoveries": 4,
+    "palace_drawers": 205,
+    "kg_triples": 1064,
+    "kg_entities": 301,
+    "domains": {
+      "Epidemiology": 26,
+      "Economics": 26,
+      "Climate": 27,
+      "Cryptography": 12,
+      "Astrophysics": 103
+    },
+    "timestamp": "2026-04-10T11:47:42.722895+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 3,
+    "engine_cycle": 3418,
+    "elapsed_seconds": 14.9,
+    "total_discoveries": 201,
+    "new_discoveries": 7,
+    "palace_drawers": 217,
+    "kg_triples": 1104,
+    "kg_entities": 314,
+    "domains": {
+      "Epidemiology": 27,
+      "Economics": 27,
+      "Climate": 28,
+      "Cryptography": 12,
+      "Astrophysics": 107
+    },
+    "timestamp": "2026-04-10T11:48:07.675541+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 4,
+    "engine_cycle": 3419,
+    "elapsed_seconds": 53.4,
+    "total_discoveries": 207,
+    "new_discoveries": 6,
+    "palace_drawers": 229,
+    "kg_triples": 1140,
+    "kg_entities": 323,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 29,
+      "Cryptography": 12,
+      "Astrophysics": 111
+    },
+    "timestamp": "2026-04-10T11:49:11.066251+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 5,
+    "engine_cycle": 3420,
+    "elapsed_seconds": 27.7,
+    "total_discoveries": 214,
+    "new_discoveries": 7,
+    "palace_drawers": 239,
+    "kg_triples": 1172,
+    "kg_entities": 330,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 29,
+      "Cryptography": 12,
+      "Astrophysics": 118
+    },
+    "timestamp": "2026-04-10T11:49:48.938164+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 6,
+    "engine_cycle": 3421,
+    "elapsed_seconds": 18.1,
+    "total_discoveries": 218,
+    "new_discoveries": 4,
+    "palace_drawers": 249,
+    "kg_triples": 1192,
+    "kg_entities": 335,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 29,
+      "Cryptography": 13,
+      "Astrophysics": 121
+    },
+    "timestamp": "2026-04-10T11:50:17.168511+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 7,
+    "engine_cycle": 3422,
+    "elapsed_seconds": 16.3,
+    "total_discoveries": 221,
+    "new_discoveries": 3,
+    "palace_drawers": 259,
+    "kg_triples": 1207,
+    "kg_entities": 338,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 29,
+      "Cryptography": 13,
+      "Astrophysics": 124
+    },
+    "timestamp": "2026-04-10T11:50:43.486077+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 8,
+    "engine_cycle": 3423,
+    "elapsed_seconds": 11.5,
+    "total_discoveries": 221,
+    "new_discoveries": 0,
+    "palace_drawers": 269,
+    "kg_triples": 1210,
+    "kg_entities": 339,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 29,
+      "Cryptography": 13,
+      "Astrophysics": 124
+    },
+    "timestamp": "2026-04-10T11:51:05.032414+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 9,
+    "engine_cycle": 3424,
+    "elapsed_seconds": 10.4,
+    "total_discoveries": 223,
+    "new_discoveries": 2,
+    "palace_drawers": 279,
+    "kg_triples": 1222,
+    "kg_entities": 341,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 30,
+      "Cryptography": 13,
+      "Astrophysics": 125
+    },
+    "timestamp": "2026-04-10T11:51:25.479379+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 10,
+    "engine_cycle": 3425,
+    "elapsed_seconds": 66.1,
+    "total_discoveries": 226,
+    "new_discoveries": 3,
+    "palace_drawers": 289,
+    "kg_triples": 1238,
+    "kg_entities": 344,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 31,
+      "Cryptography": 13,
+      "Astrophysics": 127
+    },
+    "timestamp": "2026-04-10T12:01:16.012791+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 11,
+    "engine_cycle": 3426,
+    "elapsed_seconds": 10.7,
+    "total_discoveries": 228,
+    "new_discoveries": 2,
+    "palace_drawers": 299,
+    "kg_triples": 1248,
+    "kg_entities": 347,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 32,
+      "Cryptography": 13,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:01:36.776830+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 12,
+    "engine_cycle": 3427,
+    "elapsed_seconds": 24.7,
+    "total_discoveries": 230,
+    "new_discoveries": 2,
+    "palace_drawers": 309,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:02:11.488792+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 13,
+    "engine_cycle": 3428,
+    "elapsed_seconds": 13.8,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 319,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:02:35.321119+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 14,
+    "engine_cycle": 3429,
+    "elapsed_seconds": 8.5,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 329,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:02:53.871690+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 15,
+    "engine_cycle": 3430,
+    "elapsed_seconds": 9.5,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 339,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:03:13.590173+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 16,
+    "engine_cycle": 3431,
+    "elapsed_seconds": 9.8,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 349,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:03:33.465352+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 17,
+    "engine_cycle": 3432,
+    "elapsed_seconds": 10.0,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 359,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:03:53.486502+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 18,
+    "engine_cycle": 3433,
+    "elapsed_seconds": 10.0,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 369,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:04:13.485142+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 19,
+    "engine_cycle": 3434,
+    "elapsed_seconds": 9.1,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 379,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:04:32.585756+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 20,
+    "engine_cycle": 3435,
+    "elapsed_seconds": 10.2,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 389,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:04:53.017798+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 21,
+    "engine_cycle": 3436,
+    "elapsed_seconds": 10.3,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 399,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:05:13.436481+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 22,
+    "engine_cycle": 3437,
+    "elapsed_seconds": 10.2,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 409,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:05:33.687386+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 23,
+    "engine_cycle": 3438,
+    "elapsed_seconds": 10.1,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 419,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:05:53.778730+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 24,
+    "engine_cycle": 3439,
+    "elapsed_seconds": 9.9,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 429,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:06:13.717679+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 25,
+    "engine_cycle": 3440,
+    "elapsed_seconds": 10.2,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 439,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T12:06:34.107690+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 26,
+    "engine_cycle": 3441,
+    "elapsed_seconds": 6467.8,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 449,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T13:54:31.991962+00:00",
+    "status": "success"
+  },
+  {
+    "cycle": 27,
+    "engine_cycle": 3442,
+    "elapsed_seconds": 20.5,
+    "total_discoveries": 230,
+    "new_discoveries": 0,
+    "palace_drawers": 459,
+    "kg_triples": 1258,
+    "kg_entities": 349,
+    "domains": {
+      "Epidemiology": 28,
+      "Economics": 27,
+      "Climate": 33,
+      "Cryptography": 14,
+      "Astrophysics": 128
+    },
+    "timestamp": "2026-04-10T13:55:02.543241+00:00",
+    "status": "success"
+  }
+]

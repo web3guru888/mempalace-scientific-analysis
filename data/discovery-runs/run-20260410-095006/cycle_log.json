@@ -1,0 +1,21 @@
+[
+  {
+    "cycle": 1,
+    "engine_cycle": 3310,
+    "elapsed_seconds": 86.9,
+    "total_discoveries": 18,
+    "new_discoveries": 1,
+    "palace_drawers": 25,
+    "kg_triples": 184,
+    "kg_entities": 94,
+    "domains": {
+      "Epidemiology": 3,
+      "Economics": 3,
+      "Climate": 3,
+      "Cryptography": 1,
+      "Astrophysics": 8
+    },
+    "timestamp": "2026-04-10T09:51:42.785707+00:00",
+    "status": "success"
+  }
+]

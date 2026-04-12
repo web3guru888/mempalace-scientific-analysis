@@ -1,0 +1,178 @@
+{
+  "cross_domain_100": {
+    "m6_confirmation_rate": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m7_time_to_confirm_mean": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m15_auc_confidence": {
+      "baseline_mean": 0.09964727694873113,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.11124447181050985,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.011597194861778723
+    },
+    "m17_domain_balance": {
+      "baseline_mean": 0.8737065197658209,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.8737065197658209,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m13_storage_overhead_mb": {
+      "baseline_mean": 0.0234375,
+      "baseline_std": 0.0,
+      "treatment_mean": 5.667462348937988,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 5.644024848937988
+    }
+  },
+  "scaling_500": {
+    "m6_confirmation_rate": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m7_time_to_confirm_mean": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m15_auc_confidence": {
+      "baseline_mean": 0.09964727694873113,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.11124447181050985,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.011597194861778723
+    },
+    "m17_domain_balance": {
+      "baseline_mean": 0.8737065197658209,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.8737065197658209,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m13_storage_overhead_mb": {
+      "baseline_mean": 0.0234375,
+      "baseline_std": 0.0,
+      "treatment_mean": 5.667464256286621,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 5.644026756286621
+    }
+  },
+  "duplicates_30": {
+    "m6_confirmation_rate": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m7_time_to_confirm_mean": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m15_auc_confidence": {
+      "baseline_mean": 0.125561584844577,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.11117571312547925,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": -0.014385871719097748
+    },
+    "m17_domain_balance": {
+      "baseline_mean": 0.8737065197658209,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.8737065197658209,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m4_duplicate_detection_rate": {
+      "baseline_mean": 0.2,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.85,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.6499999999999999
+    },
+    "m13_storage_overhead_mb": {
+      "baseline_mean": 0.0234375,
+      "baseline_std": 0.0,
+      "treatment_mean": 5.6674652099609375,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 5.6440277099609375
+    }
+  },
+  "specialist_100": {
+    "m6_confirmation_rate": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m7_time_to_confirm_mean": {
+      "baseline_mean": 0.0,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.0,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m15_auc_confidence": {
+      "baseline_mean": 0.11124447181050985,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.11124447181050985,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m17_domain_balance": {
+      "baseline_mean": 0.8737065197658209,
+      "baseline_std": 0.0,
+      "treatment_mean": 0.8737065197658209,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    },
+    "m13_storage_overhead_mb": {
+      "baseline_mean": 5.667466163635254,
+      "baseline_std": 0.0,
+      "treatment_mean": 5.667466163635254,
+      "treatment_std": 0.0,
+      "effect_size_d": 0.0,
+      "delta": 0.0
+    }
+  }
+}

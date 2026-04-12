@@ -1,0 +1,11 @@
+{
+  "exec_time_seconds": 0.0014357566833496094,
+  "m15_auc_confidence": 0.16116809506849006,
+  "m6_confirmation_rate": 0.0,
+  "m7_time_to_confirm_mean": 0.0,
+  "m17_domain_balance": 0.9656476401164373,
+  "storage_backend": "DiscoveryMemory",
+  "m13_storage_overhead_mb": 0.04296875,
+  "seed": 43,
+  "run_idx": 1
+}
