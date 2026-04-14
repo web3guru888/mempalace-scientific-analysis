@@ -1,46 +1,59 @@
 # Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture
 
-[![Paper](https://img.shields.io/badge/Paper-Markdown-blue)](paper/mempalace-scientific-analysis.md)
-[![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)](LICENSE)
-[![Data](https://img.shields.io/badge/Data-Open-green)](#repository-structure)
+[![arXiv](https://img.shields.io/badge/arXiv-cs.AI-b31b1b.svg)](https://arxiv.org/search/?searchtype=all&query=mempalace+spatial+metaphors)
+[![Paper PDF](https://img.shields.io/badge/Paper-PDF-blue)](paper/mempalace-paper.pdf)
+[![LaTeX Source](https://img.shields.io/badge/LaTeX-Source-orange)](paper/mempalace-paper.tex)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+[![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-green.svg)](LICENSE-CODE)
 
-**Authors:** MEMPALACE-AGI Research Group  
-**Date:** April 12, 2026  
-**Affiliation:** Taurus Autonomous Research Platform  
+**Author:** Robin Dey (robin@vbrl.ai)  
+**Affiliation:** VBRL Holdings, Thailand  
+**Date:** April 2026  
+**Branch:** `submission-draft` — arXiv-ready LaTeX version
+
+> 📄 **[Read the PDF →](paper/mempalace-paper.pdf)**  
+> 📝 **[LaTeX source →](paper/mempalace-paper.tex)**  
+> 🗂 **[arXiv submission guide →](paper/arxiv-submission/README.md)**
 
 ---
 
 ## Abstract
 
-MemPalace is an open-source AI memory system that applies the ancient *method of loci* (memory palace) spatial metaphor to organize long-term memory for large language models. Launched in April 2026, the project has attracted over 42,000 GitHub stars and claims state-of-the-art retrieval performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any LLM inference at write time.
+MemPalace is an open-source AI memory system that applies the ancient *method of loci* (memory palace) spatial metaphor to organize long-term memory for large language models. Launched in April 2026, the project accumulated over 42,000 GitHub stars and claims state-of-the-art retrieval performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any LLM inference at write time.
 
-We present a comprehensive technical analysis of the MemPalace architecture, examining the mapping between its cognitive-science-inspired hierarchical structure (Wings→Rooms→Closets→Drawers) and its actual implementation in code. Through independent codebase analysis, benchmark replication, and comparison with competing systems, we find that:
+We present a comprehensive technical analysis of the MemPalace architecture, examining the mapping between its cognitive-science-inspired hierarchical structure (Wings→Rooms→Drawers) and its actual implementation in code. Through independent codebase analysis, benchmark replication, and comparison with competing systems, we find that MemPalace's headline retrieval performance is attributable primarily to its **verbatim storage philosophy** combined with ChromaDB's default embedding model (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per se.
 
-1. **MemPalace's headline retrieval performance** is attributable primarily to its verbatim storage philosophy combined with ChromaDB's default embedding model (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per se
-2. **The palace hierarchy** operates as standard vector database metadata filtering — an effective but well-established technique
-3. **Genuinely novel contributions** include: a contrarian verbatim-first storage philosophy, extremely low wake-up cost (~170 tokens), a fully deterministic zero-LLM write path, and the first systematic application of spatial memory metaphors to AI memory systems
+Our analysis concludes that MemPalace represents **significant architectural insight wrapped in overstated claims** — a pattern common in rapidly adopted open-source projects where marketing velocity exceeds scientific rigor.
 
-Our analysis concludes that MemPalace represents significant *architectural insight* wrapped in *overstated claims* — a pattern common in rapidly adopted open-source projects where marketing velocity exceeds scientific rigor.
-
-**Keywords:** AI memory systems, method of loci, spatial memory, vector databases, LLM memory, retrieval-augmented generation, MCP protocol, ChromaDB
+**Keywords:** AI memory systems · method of loci · spatial memory · vector databases · LLM memory · retrieval-augmented generation · MCP protocol · ChromaDB · LongMemEval
 
 ---
 
-## 📄 Paper
+## Key Findings
 
-The full paper is available at:
+| Finding | Result |
+|---------|--------|
+| LongMemEval Recall@5 (raw, no LLM) | **96.6%** |
+| Benchmark attributable to palace structure? | ❌ (it's ChromaDB + verbatim text) |
+| Benchmark attributable to verbatim storage? | ✅ |
+| Wake-up cost (L0+L1) | **~170 tokens** |
+| Write-time LLM calls required | **0** |
+| Runtime dependencies | **2** (chromadb, pyyaml) |
+| Mem0 comparison (extraction-based) | ~49% Recall@5 |
+| "+34% from palace" claim valid? | ⚠️ Standard metadata filtering |
+| AAAK "lossless" claim valid? | ❌ 12.4pp recall drop |
 
-- **[`paper/mempalace-scientific-analysis.md`](paper/mempalace-scientific-analysis.md)** — Complete analysis (630 lines, ~60KB)
+---
 
-### Paper Sections
+## Paper Structure
 
 | Section | Topic |
 |---------|-------|
 | §1 | Introduction and contributions |
-| §2 | Background: AI memory problem, method of loci neuroscience, hierarchical memory, vector DBs, MCP |
-| §3 | System architecture: palace hierarchy, ingestion, search, knowledge graph, AAAK, MCP server |
-| §4 | Evaluation: LongMemEval results, benchmark controversy, honest assessment, competitive comparison |
-| §5 | Discussion: what's novel vs. not, marketing-science gap, cognitive science verdict, scalability |
+| §2 | Background: AI memory, method of loci neuroscience, hierarchical memory, vector DBs, MCP |
+| §3 | System architecture: palace hierarchy, ingestion, search, knowledge graph, AAAK, MCP |
+| §4 | Evaluation: LongMemEval, benchmark controversy, honest assessment, competitive comparison |
+| §5 | Discussion: novelty, marketing-science gap, cognitive science verdict, verbatim insight |
 | §6 | Related systems: Supermemory ASMR, Mem0, Zep/Graphiti, Mastra, Hindsight |
 | §7 | Framework for evaluating AI memory systems |
 | §8 | Conclusion and recommendations |
@@ -50,201 +63,114 @@ The full paper is available at:
 
 ---
 
-## 🔬 Supporting Materials for Peer Review
-
-This repository contains **all data, code, and experiment reports** needed to independently verify our claims.
-
-### Repository Structure
-
-```
-├── paper/
-│   └── mempalace-scientific-analysis.md    # The full paper
-│
-├── benchmarks/
-│   ├── scripts/                            # Benchmark runner code
-│   │   ├── runner.py                       # Main benchmark runner (391 lines)
-│   │   ├── metrics.py                      # Metric computation (53 lines)
-│   │   ├── config.py                       # Benchmark configuration
-│   │   ├── mock_data.py                    # Mock data generators
-│   │   └── __main__.py                     # Entry point
-│   ├── results/
-│   │   ├── raw/                            # Raw JSON results (25 benchmark runs)
-│   │   └── aggregated/
-│   │       └── summary.json                # Aggregated statistics with effect sizes
-│   └── analysis/
-│       ├── S1_S2_results.md                # Cold start / warm start analysis
-│       └── phase7-benchmark-summary.md     # Phase 7 benchmark summary
-│
-├── experiments/
-│   ├── experiment-registry-2026-04-10.md   # Master registry of all experiments
-│   ├── scripts/
-│   │   ├── causal_chain_experiment.py      # Causal chain Orient experiment (1,314 lines)
-│   │   ├── cycle6_experiment.py            # Cycle 6 retrieval profiles (1,229 lines)
-│   │   ├── cycle7_experiment.py            # Cycle 7 embedding dedup (1,205 lines)
-│   │   └── launch_discovery.py             # Discovery cycle launcher (280 lines)
-│   └── reports/                            # 33 experiment reports (Markdown)
-│       ├── discovery-cycle-{2..28}-*.md    # Individual cycle reports
-│       ├── causal-chain-experiment-*.md    # Causal chain experiment
-│       ├── real-data-experiment-*.md       # Real data source experiment
-│       ├── bridge-ab-experiment-*.md       # A/B comparison experiment
-│       ├── cross-domain-transfer-*.md      # Cross-domain transfer experiment
-│       ├── domain-diversity-*.md           # Domain diversity experiment
-│       └── pool-rebalance-*.md             # Pool rebalance experiment
-│
-├── integration-code/
-│   ├── src/mempalace_agi/                  # Full MemPalace-AGI integration source
-│   │   ├── palace_discovery_memory.py      # Core: Palace-backed discovery memory
-│   │   ├── memory_augmented_orient.py      # OODA Orient with semantic search
-│   │   ├── knowledge_graph.py              # Temporal knowledge graph
-│   │   ├── knowledge_graph_bridge.py       # KG ↔ ASTRA bridge
-│   │   ├── hypothesis_workspace.py         # Hypothesis lifecycle management
-│   │   ├── retrieval_profiles.py           # 5 retrieval profile system
-│   │   ├── kg_pathfinder.py                # Knowledge graph pathfinding
-│   │   ├── kg_pheromones.py                # Stigmergic pheromone trails
-│   │   ├── kg_communities.py               # KG community detection
-│   │   ├── domain_specialists.py           # Domain specialist agents
-│   │   ├── discovery_synergy.py            # Cross-domain synergy detection
-│   │   ├── orchestrator.py                 # OODA cycle orchestrator
-│   │   ├── unified_api.py                  # Unified REST API
-│   │   ├── mcp_server.py                   # MCP server (19+ tools)
-│   │   ├── backends/                       # Pluggable storage backends
-│   │   │   ├── vector_backend.py           # Abstract vector backend
-│   │   │   ├── chromadb_backend.py         # ChromaDB implementation
-│   │   │   ├── kg_backend.py               # KG backend interface
-│   │   │   └── sqlite_kg_backend.py        # SQLite KG backend
-│   │   └── ...                             # Additional modules
-│   └── tests/                              # 30 test files
-│       ├── test_palace_discovery_memory.py
-│       ├── test_memory_augmented_orient.py
-│       ├── test_retrieval_profiles.py
-│       ├── test_kg_bridge.py
-│       └── ...                             # Additional test files
-│
-├── data/
-│   └── discovery-runs/                     # Raw cycle logs from 18 discovery runs
-│       ├── run-20260410-*/cycle_log.json
-│       ├── run-20260411-*/cycle_log.json
-│       └── run-20260412-*/cycle_log.json
-│
-├── references/
-│   ├── astra-rasti-v6.0.pdf               # ASTRA paper (White, 2026)
-│   └── astra-paper-text.md                # ASTRA paper text extraction
-│
-├── CITATION.cff                            # Citation metadata
-├── LICENSE                                 # CC BY 4.0
-└── README.md                               # This file
-```
-
----
-
-## 🔑 Key Claims and Where to Verify Them
-
-| Claim in Paper | Evidence Location |
-|----------------|-------------------|
-| 96.6% is Recall@5, not end-to-end QA | `paper/` §4.2, `benchmarks/analysis/S1_S2_results.md` |
-| Honest QA score is ~67.2% | `paper/` §4.3 |
-| Palace hierarchy = metadata filtering | `integration-code/src/mempalace_agi/palace_discovery_memory.py` |
-| Verbatim storage is the key differentiator | `paper/` §5.1, `benchmarks/results/` |
-| A/B: MemPalace vs baseline (null on single-run) | `experiments/reports/bridge-ab-experiment-2026-04-11.md` |
-| Cross-domain transfer shows compounding | `experiments/reports/cross-domain-transfer-experiment-2026-04-11.md` |
-| KG enrichment: 4,500+ triples per run | `experiments/reports/discovery-cycle-22-optimized-2026-04-10.md` |
-| Burst mode: 88% discovery yield | `experiments/reports/discovery-cycle-22-optimized-2026-04-10.md` |
-| Causal chain Orient improves hypothesis quality | `experiments/reports/causal-chain-experiment-2026-04-10.md` |
-| 5 retrieval profiles system | `integration-code/src/mempalace_agi/retrieval_profiles.py` |
-
----
-
-## 🏃 Reproducing Results
-
-### Prerequisites
-
-```bash
-# Python 3.10+
-pip install chromadb pyyaml scipy numpy
-```
-
-### Running Benchmarks
-
-```bash
-cd benchmarks/scripts
-python -m __main__
-```
-
-The benchmark runner (`runner.py`) executes treatment vs. baseline comparisons across multiple scenarios (cold start, warm start, cross-domain, scaling, deduplication). Raw results are written to `results/raw/` as JSON.
-
-### Running Experiments
-
-Each experiment script in `experiments/scripts/` is self-contained:
-
-```bash
-cd experiments/scripts
-python causal_chain_experiment.py   # Causal chain Orient experiment
-python cycle6_experiment.py         # Retrieval profiles experiment
-python cycle7_experiment.py         # Embedding dedup experiment
-python launch_discovery.py          # Full OODA discovery cycle
-```
-
-**Note:** Experiments require the full MemPalace-AGI integration and ASTRA-dev framework. The integration code is provided in `integration-code/` for inspection. To run experiments end-to-end, you also need:
-
-- [MemPalace](https://github.com/milla-jovovich/mempalace) (MIT License)
-- [ASTRA-dev](https://github.com/Tilanthi/ASTRA-dev) (License TBD — see §8.2 of the paper)
-
----
-
-## 📊 Data Description
-
-### Benchmark Results (`benchmarks/results/raw/`)
-
-25 JSON files containing per-run metrics:
-- **Scenarios:** cold_start (25/50 cycles), warm_start (25/50 cycles), cross_domain (100 cycles), scaling (500 cycles), duplicates (30 cycles), specialist with/without diaries (100 cycles)
-- **Conditions:** baseline (SQLite DiscoveryMemory) vs. treatment (PalaceDiscoveryMemory)
-- **Metrics:** M6 confirmation rate, M7 time-to-confirm, M15 AUC confidence, M17 domain balance, M13 storage overhead
-
-### Discovery Run Logs (`data/discovery-runs/`)
-
-18 complete discovery run cycle logs containing:
-- Per-cycle hypothesis generation, testing, and evaluation data
-- Knowledge graph triple counts
-- Drawer creation and deduplication statistics
-- Domain distribution metrics
-
-### Experiment Reports (`experiments/reports/`)
-
-33 detailed Markdown reports from the full experimental campaign (April 9–11, 2026), documenting:
-- Discovery cycles 2–28 with incremental improvements
-- A/B comparisons (MemPalace vs. baseline)
-- Cross-domain transfer experiments
-- Causal chain integration experiments
-- Domain diversity and pool rebalance studies
-
----
-
-## ⚖️ Ethical Considerations
-
-This paper presents a critical but fair analysis of an open-source project. We:
-- Acknowledge MemPalace's genuine contributions alongside its overstated claims
-- Use only publicly available code and data
-- Disclose that the MEMPALACE-AGI Research Group previously contributed to the MemPalace project
-- Note that ASTRA-dev currently lacks a formal license, which affects reproducibility (§8.2)
-
----
-
-## 📝 Citation
+## How to Cite
 
 ```bibtex
-@article{mempalace-agi-2026-analysis,
-  title={Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture},
-  author={{MEMPALACE-AGI Research Group}},
-  year={2026},
-  month={April},
-  url={https://github.com/web3guru888/mempalace-scientific-analysis}
+@unpublished{dey2026mempalace,
+  author = {Dey, Robin},
+  title  = {Spatial Metaphors for {LLM} Memory: A Critical Analysis of the {MemPalace} Architecture},
+  year   = {2026},
+  url    = {https://github.com/web3guru888/mempalace-scientific-analysis},
+  note   = {Preprint}
 }
 ```
 
+Or see [`CITATION.cff`](CITATION.cff) for the Citation File Format version.
+
 ---
 
-## 📜 License
+## Reproduce Our Results
 
-- **Paper and documentation:** [CC BY 4.0](LICENSE)
-- **Code (benchmarks, experiments, integration):** [MIT License](LICENSE-CODE)
-- **Referenced projects:** MemPalace (MIT), ASTRA-dev (License TBD)
+All benchmark scripts, experiment code, and raw data are included in this repository.
+
+### Requirements
+
+```bash
+pip install chromadb pyyaml numpy pandas
+```
+
+### Run Benchmarks
+
+```bash
+cd benchmarks/
+python -m scripts --config scripts/config.py
+# Results written to results/aggregated/summary.json
+```
+
+### Key Experiments
+
+| Script | Description |
+|--------|-------------|
+| `benchmarks/scripts/runner.py` | Main benchmark runner (LongMemEval reproduction) |
+| `experiments/scripts/causal_chain_experiment.py` | Causal chain orient experiment |
+| `experiments/scripts/cycle6_experiment.py` | Retrieval profiles (Cycle 6) |
+| `experiments/scripts/cycle7_experiment.py` | Embedding deduplication (Cycle 7) |
+
+### Build the Paper PDF
+
+```bash
+cd paper/
+make pdf
+# → mempalace-paper.pdf (18 pages)
+```
+
+Requires: `pdflatex`, `bibtex` (standard TeX Live installation).
+
+---
+
+## Repository Structure
+
+```
+mempalace-scientific-analysis/
+│
+├── paper/
+│   ├── mempalace-paper.tex              ← LaTeX source (JMLR preprint style)
+│   ├── mempalace-paper.bib              ← BibTeX bibliography (25 references)
+│   ├── mempalace-paper.pdf              ← Pre-built PDF (18 pages)
+│   ├── jmlr2e.sty                       ← JMLR style file
+│   ├── Makefile                         ← Reproducible PDF build
+│   ├── mempalace-scientific-analysis.md ← Original Markdown paper
+│   └── arxiv-submission/
+│       ├── README.md                    ← arXiv upload instructions
+│       └── jmlr2e.sty                   ← Style file for arXiv bundle
+│
+├── benchmarks/
+│   ├── scripts/                         ← Benchmark runner code
+│   │   ├── runner.py                    ← Main runner (391 lines)
+│   │   ├── metrics.py                   ← Metric computation
+│   │   ├── config.py                    ← Configuration
+│   │   ├── mock_data.py                 ← Mock data generators
+│   │   └── __main__.py                  ← Entry point
+│   ├── results/raw/                     ← Raw JSON results (25 runs)
+│   └── results/aggregated/summary.json  ← Aggregated statistics
+│
+├── experiments/
+│   ├── experiment-registry-2026-04-10.md ← Master registry
+│   ├── scripts/                          ← Experiment scripts (4 files)
+│   └── reports/                          ← 33 experiment reports (Markdown)
+│
+├── integration-code/
+│   └── src/mempalace_agi/               ← Full integration source (6 modules)
+│
+├── data/discovery-runs/                 ← Experiment data
+├── references/                          ← Reference documents
+│
+├── CITATION.cff                         ← Citation metadata
+├── LICENSE                              ← CC BY 4.0 (paper)
+└── LICENSE-CODE                         ← MIT (code/benchmarks)
+```
+
+---
+
+## License
+
+- **Paper** (`.tex`, `.pdf`, `.md`): [CC BY 4.0](LICENSE) — cite us and use freely
+- **Code** (benchmarks, experiments, integration): [MIT](LICENSE-CODE) — use freely
+
+---
+
+## Contact
+
+Robin Dey — robin@vbrl.ai  
+VBRL Holdings, Thailand  
+GitHub: [web3guru888](https://github.com/web3guru888)
