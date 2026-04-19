@@ -4,7 +4,7 @@
 **Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture**
 
 ## Authors
-Robin Dey (OpenHub Research, Chiang Mai, Thailand) — robin@vbrl.ai  
+Robin Dey (OpenHub Research, Chiang Mai, Thailand) — robin@openhubresearch.org  
 Panyanon Viradecha (OpenHub Research, Chiang Mai, Thailand)
 
 ---

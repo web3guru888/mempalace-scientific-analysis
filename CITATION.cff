@@ -3,7 +3,7 @@ message: "If you use this analysis, please cite it as below."
 authors:
   - family-names: Dey
     given-names: Robin
-    email: robin@vbrl.ai
+    email: robin@openhubresearch.org
     affiliation: OpenHub Research
   - family-names: Viradecha
     given-names: Panyanon
@@ -50,7 +50,7 @@ preferred-citation:
   authors:
     - family-names: Dey
       given-names: Robin
-      email: robin@vbrl.ai
+      email: robin@openhubresearch.org
       affiliation: OpenHub Research
     - family-names: Viradecha
       given-names: Panyanon

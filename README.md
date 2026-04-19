@@ -6,7 +6,7 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-green.svg)](LICENSE-CODE)
 
-**Authors:** Robin Dey (robin@vbrl.ai) · Panyanon Viradecha  
+**Authors:** Robin Dey (robin@openhubresearch.org) · Panyanon Viradecha  
 **Affiliation:** OpenHub Research, Chiang Mai, Thailand  
 **Date:** April 2026  
 **Branch:** `submission-draft` — arXiv-ready LaTeX version
@@ -178,7 +178,7 @@ mempalace-scientific-analysis/
 
 ## Contact
 
-Robin Dey — robin@vbrl.ai  
+Robin Dey — robin@openhubresearch.org  
 Panyanon Viradecha  
 OpenHub Research, Chiang Mai, Thailand  
 GitHub: [web3guru888](https://github.com/web3guru888)  
