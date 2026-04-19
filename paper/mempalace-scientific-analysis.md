@@ -1,15 +1,15 @@
 # Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture
 
-**Authors:** MEMPALACE-AGI Research Group  
-**Date:** April 12, 2026  
-**Affiliation:** Taurus Autonomous Research Platform  
-**Version:** 1.0
+**Authors:** Robin Dey · Panyanon Viradecha  
+**Date:** April 19, 2026  
+**Affiliation:** OpenHub Research, Chiang Mai, Thailand  
+**Version:** 1.2
 
 ---
 
 ## Abstract
 
-MemPalace is an open-source AI memory system that applies the ancient *method of loci* (memory palace) spatial metaphor to organize long-term memory for large language models. Launched in April 2026, the project has attracted over 42,000 GitHub stars and claims state-of-the-art retrieval performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any LLM inference at write time. We present a comprehensive technical analysis of the MemPalace architecture, examining the mapping between its cognitive-science-inspired hierarchical structure (Wings→Rooms→Closets→Drawers) and its actual implementation in code. Through independent codebase analysis, benchmark replication, and comparison with competing systems, we find that MemPalace's headline retrieval performance is attributable primarily to its verbatim storage philosophy combined with ChromaDB's default embedding model (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per se. The palace hierarchy operates as standard vector database metadata filtering — an effective but well-established technique. However, we argue that MemPalace makes several genuinely novel contributions that the community has underappreciated: (1) a contrarian verbatim-first storage philosophy that outperforms extraction-based competitors, (2) an extremely low wake-up cost (~170 tokens) through its four-layer memory stack, (3) a fully deterministic, zero-LLM write path enabling offline operation at zero API cost, and (4) the first systematic application of spatial memory metaphors as an organizing principle for AI memory systems. We situate these contributions within the broader landscape of AI memory architectures, cognitive science research on hierarchical memory, and the emerging MCP protocol ecosystem. Our analysis concludes that MemPalace represents significant *architectural insight* wrapped in *overstated claims* — a pattern common in rapidly adopted open-source projects where marketing velocity exceeds scientific rigor.
+MemPalace is an open-source AI memory system that applies the ancient *method of loci* (memory palace) spatial metaphor to organize long-term memory for large language models. Launched in April 2026, the project accumulated over 47,000 GitHub stars in its first two weeks and claims state-of-the-art retrieval performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any LLM inference at write time. We present a comprehensive technical analysis of the MemPalace architecture, examining the mapping between its cognitive-science-inspired hierarchical structure (Wings→Rooms→Closets→Drawers) and its actual implementation in code. Through independent codebase analysis, benchmark replication, and comparison with competing systems, we find that MemPalace's headline retrieval performance is attributable primarily to its verbatim storage philosophy combined with ChromaDB's default embedding model (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per se. The palace hierarchy operates as standard vector database metadata filtering — an effective but well-established technique. However, we argue that MemPalace makes several genuinely novel contributions that the community has underappreciated: (1) a contrarian verbatim-first storage philosophy that challenges extraction-based competitors, (2) an extremely low wake-up cost (~170 tokens) through its four-layer memory stack, (3) a fully deterministic, zero-LLM write path enabling offline operation at zero API cost, and (4) the first systematic application of spatial memory metaphors as an organizing principle for AI memory systems. We note that the competitive landscape is evolving rapidly: Mem0's April 2026 token-efficient algorithm raised their LongMemEval score from ~49% to 93.4%, narrowing the gap between extraction-based and verbatim approaches. Our analysis concludes that MemPalace represents significant *architectural insight* wrapped in *overstated claims* — a pattern common in rapidly adopted open-source projects where marketing velocity exceeds scientific rigor.
 
 **Keywords:** AI memory systems, method of loci, spatial memory, vector databases, LLM memory, retrieval-augmented generation, MCP protocol, ChromaDB
 
@@ -23,7 +23,7 @@ This limitation has spawned a rapidly growing ecosystem of memory augmentation s
 
 Into this landscape, MemPalace [5] arrived in April 2026 with an unconventional proposition: borrow the organizational structure of the *method of loci* — a 2,500-year-old mnemonic technique — and use it to organize AI memory. Instead of extracting facts or building graphs, MemPalace stores everything verbatim and organizes it into a hierarchical spatial structure: Wings (domains) contain Rooms (topics) contain Closets (collections) contain Drawers (individual memory chunks). The system requires only two runtime dependencies (ChromaDB and PyYAML), runs entirely offline, and claimed 96.6% Recall@5 on the LongMemEval benchmark [6] — higher than any extraction-based competitor.
 
-The project's reception was extraordinary. Within 48 hours of launch, MemPalace accumulated over 7,000 GitHub stars. By April 12, 2026, the count exceeded 42,145 stars and 5,382 forks, making it one of the fastest-growing AI projects in GitHub history. The project's co-creator, actress and technologist Milla Jovovich, brought unprecedented mainstream attention to what is fundamentally an AI infrastructure project.
+The project's reception was extraordinary. Within 48 hours of launch, MemPalace accumulated over 7,000 GitHub stars. By April 19, 2026 — two weeks after launch — the count exceeded 47,900 stars and 6,000+ forks, making it one of the fastest-growing AI projects in GitHub history. The project's co-creator, actress and technologist Milla Jovovich, brought unprecedented mainstream attention to what is fundamentally an AI infrastructure project.
 
 This paper asks a direct question: **Is MemPalace's approach scientifically revolutionary, or is it well-marketed engineering on existing primitives?**
 
@@ -80,7 +80,7 @@ Modern neuroimaging has confirmed the neural basis of the MoL's effectiveness. T
 
 Dresler et al. demonstrated that 6 weeks of MoL training (40 days, 30 minutes/day) produced durable changes in functional brain connectivity, with naive participants' connectivity patterns shifting toward those of world-class memory athletes. Performance quadrupled (from ~26 to ~62 words in a standard list task), and these gains persisted at 4-month follow-up.
 
-A 2025 systematic review by Ondřej et al. [11] in the *British Journal of Psychology* confirmed consistent neuroimaging evidence for spatial memory circuit activation during MoL use, and VR-based studies [13] have demonstrated that the MoL transfers effectively to virtual environments, with applications in web search memory retention.
+A 2025 systematic review and meta-analysis by Ondřej et al. [11] in the *British Journal of Psychology* evaluated the effectiveness, cognitive mechanisms, and neurobiological correlates of the MoL, confirming spatial memory circuit activation during MoL use.
 
 #### 2.2.2 The Transfer Problem
 
@@ -98,7 +98,7 @@ MemPalace's hierarchical structure (Wings→Rooms→Closets→Drawers) invokes a
 
 Collins and Quillian's (1969) [14] hierarchical semantic network model proposed that concepts are stored in a taxonomy where properties are inherited downward — "a canary can fly" is stored at the "bird" level, not at the "canary" level. While the specific predictions of this model were later refined by spreading activation theory (Collins & Loftus, 1975) [15], the core insight — that hierarchical structure facilitates efficient retrieval — has been consistently supported.
 
-Bartlett's (1932) [16] schema theory proposed that memory encoding is guided by organizational frameworks that structure incoming information. Modern extensions confirm that hierarchical schemas improve both encoding efficiency and retrieval accuracy. A 2019 *Nature* study [17] demonstrated that hierarchical organization emerges spontaneously in memory for random material, suggesting that hierarchical structure is not merely a design choice but a fundamental property of human memory systems.
+Bartlett's (1932) [16] schema theory proposed that memory encoding is guided by organizational frameworks that structure incoming information. Modern extensions confirm that hierarchical schemas improve both encoding efficiency and retrieval accuracy. Schapiro et al. (2017) [17] showed that complementary learning systems in the hippocampus reconcile episodic memory with statistical learning, supporting the view that hierarchical organization is fundamental to memory systems.
 
 Recent work in hippocampal research [18] has shown that the hippocampus encodes hierarchical organizations of related memories, with different levels of abstraction represented at different temporal scales.
 

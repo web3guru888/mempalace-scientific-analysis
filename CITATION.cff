@@ -1,10 +1,16 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below."
-title: "Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture"
+message: "If you use this analysis, please cite it as below."
 authors:
-  - name: "MEMPALACE-AGI Research Group"
-    affiliation: "Taurus Autonomous Research Platform"
-date-released: 2026-04-12
+  - family-names: Dey
+    given-names: Robin
+    email: robin@openhubresearch.org
+    affiliation: OpenHub Research
+  - family-names: Viradecha
+    given-names: Panyanon
+    affiliation: OpenHub Research
+title: "Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture"
+version: 1.2.0
+date-released: "2026-04-19"
 url: "https://github.com/web3guru888/mempalace-scientific-analysis"
 repository-code: "https://github.com/web3guru888/mempalace-scientific-analysis"
 license: CC-BY-4.0
@@ -18,14 +24,38 @@ keywords:
   - retrieval-augmented generation
   - MCP protocol
   - ChromaDB
+  - MemPalace
+  - LongMemEval
+  - verbatim storage
 abstract: >-
   We present a comprehensive technical analysis of the MemPalace architecture,
-  an open-source AI memory system applying the method of loci spatial metaphor
-  to organize long-term memory for large language models. Through independent
-  codebase analysis, benchmark replication, and comparison with competing systems,
-  we find that MemPalace's headline retrieval performance is attributable primarily
-  to its verbatim storage philosophy combined with ChromaDB's default embedding model,
-  rather than its spatial organizational metaphor. However, MemPalace makes several
-  genuinely novel contributions including a contrarian verbatim-first storage philosophy,
-  low wake-up cost, zero-LLM write paths, and the first systematic application of
-  spatial memory metaphors to AI memory systems.
+  an open-source AI memory system applying the ancient method of loci spatial
+  metaphor to organize long-term memory for large language models. Through
+  independent codebase analysis, benchmark replication, and comparison with
+  competing systems, we find that MemPalace's headline retrieval performance
+  (96.6% Recall@5 on LongMemEval) is attributable primarily to its verbatim
+  storage philosophy combined with ChromaDB's default embedding model
+  (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per
+  se. The palace hierarchy operates as standard vector database metadata
+  filtering. However, MemPalace makes several genuinely novel contributions:
+  a contrarian verbatim-first storage philosophy that challenges
+  extraction-based competitors, an extremely low wake-up cost (~170 tokens),
+  a fully deterministic zero-LLM write path, and the first systematic
+  application of spatial memory metaphors as an organizing principle for AI
+  memory systems. We situate these contributions within the broader landscape
+  of AI memory architectures, cognitive science research on hierarchical
+  memory, and the emerging MCP protocol ecosystem.
+preferred-citation:
+  type: unpublished
+  authors:
+    - family-names: Dey
+      given-names: Robin
+      email: robin@openhubresearch.org
+      affiliation: OpenHub Research
+    - family-names: Viradecha
+      given-names: Panyanon
+      affiliation: OpenHub Research
+  title: "Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture"
+  year: 2026
+  url: "https://github.com/web3guru888/mempalace-scientific-analysis"
+  notes: "Preprint, submitted to arXiv cs.AI"
