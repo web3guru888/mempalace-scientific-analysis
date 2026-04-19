@@ -4,7 +4,8 @@
 **Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture**
 
 ## Authors
-Robin Dey (VBRL Holdings, Thailand) — robin@vbrl.ai
+Robin Dey (OpenHub Research, Chiang Mai, Thailand) — robin@vbrl.ai  
+Panyanon Viradecha (OpenHub Research, Chiang Mai, Thailand)
 
 ---
 
@@ -53,8 +54,8 @@ Upload **all** of the following files as a `.tar.gz` bundle:
 7. Fill in:
    - **Title**: `Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture`
    - **Abstract**: *(copy from paper, see below)*
-   - **Authors**: `Robin Dey`
-   - **Affiliation**: `VBRL Holdings, Thailand`
+   - **Authors**: `Robin Dey, Panyanon Viradecha`
+   - **Affiliation**: `OpenHub Research, Chiang Mai, Thailand`
    - **Comments**: `20 pages, 10 tables. Code and data at https://github.com/web3guru888/mempalace-scientific-analysis`
 8. Submit
 

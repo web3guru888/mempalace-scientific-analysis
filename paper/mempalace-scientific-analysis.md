@@ -1,9 +1,9 @@
 # Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture
 
-**Author:** Robin Dey  
+**Authors:** Robin Dey · Panyanon Viradecha  
 **Date:** April 19, 2026  
-**Affiliation:** VBRL Holdings, Thailand  
-**Version:** 1.1
+**Affiliation:** OpenHub Research, Chiang Mai, Thailand  
+**Version:** 1.2
 
 ---
 

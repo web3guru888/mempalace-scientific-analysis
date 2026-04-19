@@ -6,8 +6,8 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-green.svg)](LICENSE-CODE)
 
-**Author:** Robin Dey (robin@vbrl.ai)  
-**Affiliation:** VBRL Holdings, Thailand  
+**Authors:** Robin Dey (robin@vbrl.ai) · Panyanon Viradecha  
+**Affiliation:** OpenHub Research, Chiang Mai, Thailand  
 **Date:** April 2026  
 **Branch:** `submission-draft` — arXiv-ready LaTeX version
 
@@ -74,11 +74,11 @@ Since the initial analysis (v3.1.0), MemPalace shipped pluggable storage backend
 
 ```bibtex
 @unpublished{dey2026mempalace,
-  author = {Dey, Robin},
+  author = {Dey, Robin and Viradecha, Panyanon},
   title  = {Spatial Metaphors for {LLM} Memory: A Critical Analysis of the {MemPalace} Architecture},
   year   = {2026},
   url    = {https://github.com/web3guru888/mempalace-scientific-analysis},
-  note   = {Preprint}
+  note   = {Preprint, OpenHub Research}
 }
 ```
 
@@ -179,5 +179,7 @@ mempalace-scientific-analysis/
 ## Contact
 
 Robin Dey — robin@vbrl.ai  
-VBRL Holdings, Thailand  
-GitHub: [web3guru888](https://github.com/web3guru888)
+Panyanon Viradecha  
+OpenHub Research, Chiang Mai, Thailand  
+GitHub: [web3guru888](https://github.com/web3guru888)  
+Web: [openhubresearch.org](https://openhubresearch.org)

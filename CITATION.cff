@@ -4,9 +4,12 @@ authors:
   - family-names: Dey
     given-names: Robin
     email: robin@vbrl.ai
-    affiliation: VBRL Holdings
+    affiliation: OpenHub Research
+  - family-names: Viradecha
+    given-names: Panyanon
+    affiliation: OpenHub Research
 title: "Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture"
-version: 1.1.0
+version: 1.2.0
 date-released: "2026-04-19"
 url: "https://github.com/web3guru888/mempalace-scientific-analysis"
 repository-code: "https://github.com/web3guru888/mempalace-scientific-analysis"
@@ -48,7 +51,10 @@ preferred-citation:
     - family-names: Dey
       given-names: Robin
       email: robin@vbrl.ai
-      affiliation: VBRL Holdings
+      affiliation: OpenHub Research
+    - family-names: Viradecha
+      given-names: Panyanon
+      affiliation: OpenHub Research
   title: "Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture"
   year: 2026
   url: "https://github.com/web3guru888/mempalace-scientific-analysis"
