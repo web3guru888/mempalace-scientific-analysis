@@ -410,28 +410,20 @@ Table~\ref{tab:arch-layers} summarizes the functional layers.
 \centering
 \caption{MemPalace functional layers}
 \label{tab:arch-layers}
-\begin{tabular}{@{}lll@{}}
+\small
+\begin{tabular}{@{}l >{\ttfamily\footnotesize}l l@{}}
 \toprule
-\textbf{Layer} & \textbf{Components} & \textbf{Purpose} \\
+\textbf{Layer} & \textrm{\textbf{Components}} & \textbf{Purpose} \\
 \midrule
-Ingestion   & \texttt{miner.py}, \texttt{convo\_miner.py}, \texttt{normalize.py}
-            & Convert files/conversations to drawers \\
-Storage     & \texttt{palace.py}, \texttt{backends/chroma.py}
-            & ChromaDB collection management \\
-Organization& \texttt{general\_extractor.py}, \texttt{room\_detector\_local.py}
-            & Automatic classification into wings/rooms \\
-Search      & \texttt{searcher.py}
-            & Semantic similarity + metadata filtering \\
-Knowledge Graph & \texttt{knowledge\_graph.py}, \texttt{entity\_registry.py}
-            & SQLite entity-relationship triples \\
-Compression & \texttt{dialect.py}
-            & AAAK structured summarization \\
-Memory Stack& \texttt{layers.py}
-            & 4-layer progressive memory loading \\
-Interface   & \texttt{mcp\_server.py}, \texttt{cli.py}
-            & MCP tools and command-line interface \\
-Maintenance & \texttt{dedup.py}, \texttt{repair.py}, \texttt{migrate.py}
-            & Data integrity and migration \\
+Ingestion    & miner, convo\_miner, normalize   & Convert files/convos to drawers \\
+Storage      & palace, backends/chroma          & ChromaDB collection mgmt \\
+Organization & general\_extractor, room\_detector & Auto-classify into wings/rooms \\
+Search       & searcher                         & Similarity + metadata filtering \\
+KG           & knowledge\_graph, entity\_registry & SQLite entity-rel.\ triples \\
+Compression  & dialect                          & AAAK summarization \\
+Memory Stack & layers                           & 4-layer progressive loading \\
+Interface    & mcp\_server, cli                  & MCP tools and CLI \\
+Maintenance  & dedup, repair, migrate            & Data integrity and migration \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -446,16 +438,17 @@ to a data hierarchy (Table~\ref{tab:hierarchy}).
 \centering
 \caption{Palace hierarchy: metaphor vs.\ implementation}
 \label{tab:hierarchy}
+\small
 \begin{tabular}{@{}llll@{}}
 \toprule
-\textbf{Palace Level} & \textbf{Code Implementation} & \textbf{ChromaDB Mapping} & \textbf{Cognitive Analog} \\
+\textbf{Level} & \textbf{Implementation} & \textbf{ChromaDB Mapping} & \textbf{Cognitive Analog} \\
 \midrule
-Palace  & ChromaDB collection     & \texttt{mempalace\_drawers} & The building \\
-Wing    & Metadata field          & \texttt{where=\{"wing": v\}} & Major section \\
-Room    & Metadata field          & \texttt{where=\{"room": v\}} & Room in a wing \\
-Hall    & Optional metadata field & \texttt{where=\{"hall": v\}} & Corridor (optional) \\
-Closet  & Pointer index (v3.3.0+) & Compact lookup layer        & Shelf in a room$^{*}$ \\
-Drawer  & ChromaDB document       & Individual document ID      & Specific memory \\
+Palace  & ChromaDB collection     & \texttt{mempalace\_drawers}  & The building \\
+Wing    & Metadata field          & \texttt{where=\{wing:v\}}    & Major section \\
+Room    & Metadata field          & \texttt{where=\{room:v\}}    & Room in a wing \\
+Hall    & Optional metadata       & \texttt{where=\{hall:v\}}    & Corridor (optional) \\
+Closet  & Pointer index (v3.3+)  & Compact lookup layer          & Shelf in a room$^{*}$ \\
+Drawer  & ChromaDB document       & Individual document ID        & Specific memory \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -474,8 +467,8 @@ MemPalace provides two ingestion paths:
 \textbf{Project Mining} (\texttt{miner.py}): Reads files from a project
 directory, applies fixed chunking (800 characters per chunk, 100 characters
 overlap), and stores each chunk as a drawer.  These parameters are within the
-standard RAG range---LangChain's default \texttt{RecursiveCharacterTextSplitter}
-uses 1000/200.
+standard RAG range---LangChain's default
+\texttt{Recursive\-Character\-Text\-Splitter} uses 1000/200.
 
 \textbf{Conversation Mining} (\texttt{convo\_miner.py}): Ingests conversation
 exports, chunking by exchange pair (one user turn plus the AI's response).
@@ -483,8 +476,13 @@ This preserves conversational coherence---a thoughtful design choice.
 
 Both paths produce identical output: ChromaDB documents with metadata fields
 specifying wing, room, source file, and timestamp.  The drawer ID is
-deterministic: \texttt{drawer\_\{wing\}\_\{room\}\_\{md5(content)[:12]\}},
-providing natural deduplication for identical content.
+deterministic:
+
+\smallskip
+\centerline{\texttt{drawer\_\{wing\}\_\{room\}\_\{md5(content)[:12]\}}}
+\smallskip
+
+\noindent providing natural deduplication for identical content.
 
 \subsection{Search Mechanism}
 
@@ -558,14 +556,15 @@ practical innovations (Table~\ref{tab:stack}).
 \centering
 \caption{Four-layer memory stack}
 \label{tab:stack}
-\begin{tabular}{@{}lllll@{}}
+\small
+\begin{tabular}{@{}llll@{}}
 \toprule
 \textbf{Layer} & \textbf{Content} & \textbf{Size} & \textbf{Loading} \\
 \midrule
-L0: Identity      & User-written identity text    & $\sim$100 tokens      & Always \\
-L1: Essential Story & Auto-generated from top-weight drawers & $\sim$500--800 tokens & Always \\
-L2: On-Demand     & Topic/wing-specific context   & $\sim$200--500/topic  & On topic detect \\
-L3: Deep Search   & Full semantic search results  & Unlimited             & Per query \\
+L0: Identity    & User-written identity text         & $\sim$100 tok     & Always \\
+L1: Essential   & Auto-generated from top drawers    & $\sim$500--800 tok & Always \\
+L2: On-Demand   & Topic/wing-specific context        & $\sim$200--500/topic & On detect \\
+L3: Deep Search & Full semantic search results       & Unlimited          & Per query \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -688,19 +687,20 @@ Table~\ref{tab:comparison} compares MemPalace against seven competing systems.
 \centering
 \caption{AI memory systems comparison on LongMemEval}
 \label{tab:comparison}
-\begin{tabular}{@{}lllll@{}}
+\small
+\begin{tabular}{@{}lrlll@{}}
 \toprule
-\textbf{System} & \textbf{LME R@5} & \textbf{Architecture} & \textbf{Write Cost} & \textbf{Price} \\
+\textbf{System} & \textbf{R@5} & \textbf{Architecture} & \textbf{Write} & \textbf{Price} \\
 \midrule
-\textbf{MemPalace} (raw) & 96.6\% & ChromaDB + verbatim & None & Free \\
-Supermemory ASMR   & $\sim$99\% & Multi-agent agentic & LLM (multi) & Paid \\
-Mastra             & 94.87\%   & GPT-5-mini observational & LLM & Paid \\
-Hindsight          & 91.4\%    & Retain/Recall/Reflect & LLM & Paid \\
-Zep/Graphiti       & $\sim$85\% & Temporal KG (Neo4j) & LLM & \$25+/mo \\
-Mem0 (pre-Apr.\ 2026) & $\sim$49\% & LLM fact extraction & LLM & \$19--249/mo \\
-Mem0 (token-efficient) & 93.4\%   & Single-pass hierarchical & LLM & \$19--249/mo \\
-LangMem            & N/R        & LangChain primitives & LLM & Usage \\
-Letta              & N/R        & 3-tier self-editing & LLM & Open/cloud \\
+\textbf{MemPalace} (raw) & 96.6\% & ChromaDB + verbatim  & None  & Free \\
+Supermemory ASMR   & $\sim$99\%  & Multi-agent agentic  & LLM   & Paid \\
+Mastra             & 94.9\%      & GPT-5-mini observ.   & LLM   & Paid \\
+Mem0 (token-eff.)  & 93.4\%      & Hierarchical extract & LLM   & \$19--249 \\
+Hindsight          & 91.4\%      & Retain/Recall/Reflect& LLM   & Paid \\
+Zep/Graphiti       & $\sim$85\%  & Temporal KG (Neo4j)  & LLM   & \$25+ \\
+Mem0 (pre-2026)    & $\sim$49\%  & LLM fact extraction  & LLM   & \$19--249 \\
+LangMem            & N/R         & LangChain primitives & LLM   & Usage \\
+Letta              & N/R         & 3-tier self-editing  & LLM   & Open \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1180,7 +1180,6 @@ codebase.  The primary analysis was performed on MemPalace v3.1.0.
 Post-analysis developments through v3.3.1 were incorporated via changelog
 review and documentation updates, not full re-analysis.  The benchmark
 reproduction scripts and integration code are available in the accompanying
-repository at
-\url{https://github.com/web3guru888/mempalace-scientific-analysis}.
+repository.\footnote{\url{https://github.com/web3guru888/mempalace-scientific-analysis}}
 
 \end{document}
