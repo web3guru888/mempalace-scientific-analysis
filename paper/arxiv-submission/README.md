@@ -55,7 +55,7 @@ Upload **all** of the following files as a `.tar.gz` bundle:
    - **Abstract**: *(copy from paper, see below)*
    - **Authors**: `Robin Dey`
    - **Affiliation**: `VBRL Holdings, Thailand`
-   - **Comments**: `18 pages, 9 tables. Code and data at https://github.com/web3guru888/mempalace-scientific-analysis`
+   - **Comments**: `20 pages, 10 tables. Code and data at https://github.com/web3guru888/mempalace-scientific-analysis`
 8. Submit
 
 ---
@@ -65,27 +65,30 @@ Upload **all** of the following files as a `.tar.gz` bundle:
 ```
 MemPalace is an open-source AI memory system that applies the ancient method of
 loci (memory palace) spatial metaphor to organize long-term memory for large
-language models. Launched in April 2026, the project accumulated over 42,000
-GitHub stars and claims state-of-the-art retrieval performance on the LongMemEval
-benchmark (96.6% Recall@5) without requiring any LLM inference at write time.
-We present a comprehensive technical analysis of the MemPalace architecture,
-examining the mapping between its cognitive-science-inspired hierarchical structure
-(Wings→Rooms→Drawers) and its actual implementation in code. Through independent
-codebase analysis, benchmark replication, and comparison with competing systems,
-we find that MemPalace's headline retrieval performance is attributable primarily
-to its verbatim storage philosophy combined with ChromaDB's default embedding
-model (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per
-se. The palace hierarchy operates as standard vector database metadata
-filtering—an effective but well-established technique. However, we argue that
-MemPalace makes several genuinely novel contributions: (1) a contrarian
-verbatim-first storage philosophy that outperforms extraction-based competitors,
-(2) an extremely low wake-up cost (~170 tokens) through its four-layer memory
-stack, (3) a fully deterministic, zero-LLM write path enabling offline operation
-at zero API cost, and (4) the first systematic application of spatial memory
-metaphors as an organizing principle for AI memory systems. Our analysis concludes
-that MemPalace represents significant architectural insight wrapped in overstated
-claims—a pattern common in rapidly adopted open-source projects where marketing
-velocity exceeds scientific rigor.
+language models. Launched in April 2026, the project accumulated over 47,000
+GitHub stars in its first two weeks and claims state-of-the-art retrieval
+performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any
+LLM inference at write time. We present a comprehensive technical analysis of the
+MemPalace architecture, examining the mapping between its cognitive-science-
+inspired hierarchical structure (Wings→Rooms→Closets→Drawers) and its actual
+implementation in code. Through independent codebase analysis, benchmark
+replication, and comparison with competing systems, we find that MemPalace's
+headline retrieval performance is attributable primarily to its verbatim storage
+philosophy combined with ChromaDB's default embedding model (all-MiniLM-L6-v2),
+rather than to its spatial organizational metaphor per se. The palace hierarchy
+operates as standard vector database metadata filtering—an effective but well-
+established technique. However, we argue that MemPalace makes several genuinely
+novel contributions: (1) a contrarian verbatim-first storage philosophy that
+challenges extraction-based competitors, (2) an extremely low wake-up cost (~170
+tokens) through its four-layer memory stack, (3) a fully deterministic, zero-LLM
+write path enabling offline operation at zero API cost, and (4) the first
+systematic application of spatial memory metaphors as an organizing principle for
+AI memory systems. We note that the competitive landscape is evolving rapidly:
+Mem0's April 2026 token-efficient algorithm raised their LongMemEval score from
+~49% to 93.4%, narrowing the gap between extraction-based and verbatim approaches.
+Our analysis concludes that MemPalace represents significant architectural insight
+wrapped in overstated claims—a pattern common in rapidly adopted open-source
+projects where marketing velocity exceeds scientific rigor.
 ```
 
 ---

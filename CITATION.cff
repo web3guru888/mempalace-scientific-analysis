@@ -6,8 +6,8 @@ authors:
     email: robin@vbrl.ai
     affiliation: VBRL Holdings
 title: "Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture"
-version: 1.0.0
-date-released: "2026-04-14"
+version: 1.1.0
+date-released: "2026-04-19"
 url: "https://github.com/web3guru888/mempalace-scientific-analysis"
 repository-code: "https://github.com/web3guru888/mempalace-scientific-analysis"
 license: CC-BY-4.0
@@ -35,7 +35,7 @@ abstract: >-
   (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per
   se. The palace hierarchy operates as standard vector database metadata
   filtering. However, MemPalace makes several genuinely novel contributions:
-  a contrarian verbatim-first storage philosophy that outperforms
+  a contrarian verbatim-first storage philosophy that challenges
   extraction-based competitors, an extremely low wake-up cost (~170 tokens),
   a fully deterministic zero-LLM write path, and the first systematic
   application of spatial memory metaphors as an organizing principle for AI

@@ -19,7 +19,7 @@
 
 ## Abstract
 
-MemPalace is an open-source AI memory system that applies the ancient *method of loci* (memory palace) spatial metaphor to organize long-term memory for large language models. Launched in April 2026, the project accumulated over 42,000 GitHub stars and claims state-of-the-art retrieval performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any LLM inference at write time.
+MemPalace is an open-source AI memory system that applies the ancient *method of loci* (memory palace) spatial metaphor to organize long-term memory for large language models. Launched in April 2026, the project accumulated over 47,000 GitHub stars in its first two weeks and claims state-of-the-art retrieval performance on the LongMemEval benchmark (96.6% Recall@5) without requiring any LLM inference at write time.
 
 We present a comprehensive technical analysis of the MemPalace architecture, examining the mapping between its cognitive-science-inspired hierarchical structure (Wings→Rooms→Drawers) and its actual implementation in code. Through independent codebase analysis, benchmark replication, and comparison with competing systems, we find that MemPalace's headline retrieval performance is attributable primarily to its **verbatim storage philosophy** combined with ChromaDB's default embedding model (all-MiniLM-L6-v2), rather than to its spatial organizational metaphor per se.
 
@@ -39,9 +39,15 @@ Our analysis concludes that MemPalace represents **significant architectural ins
 | Wake-up cost (L0+L1) | **~170 tokens** |
 | Write-time LLM calls required | **0** |
 | Runtime dependencies | **2** (chromadb, pyyaml) |
-| Mem0 comparison (extraction-based) | ~49% Recall@5 |
+| Mem0 comparison (old / new) | ~49% → 93.4% Recall@5 |
 | "+34% from palace" claim valid? | ⚠️ Standard metadata filtering |
 | AAAK "lossless" claim valid? | ❌ 12.4pp recall drop |
+
+---
+
+### Post-Analysis Developments (v3.2.0–v3.3.1)
+
+Since the initial analysis (v3.1.0), MemPalace shipped pluggable storage backends (v3.2.0), a Closet layer with BM25 hybrid search (v3.3.0), fixed a critical `hnsw:space=cosine` bug, self-corrected their 100% benchmark to 98.4% held-out, and grew to ~48,000 stars. Mem0 also released their token-efficient algorithm, raising their LongMemEval score from ~49% to 93.4%. See §5.8 of the paper for details.
 
 ---
 
@@ -53,13 +59,14 @@ Our analysis concludes that MemPalace represents **significant architectural ins
 | §2 | Background: AI memory, method of loci neuroscience, hierarchical memory, vector DBs, MCP |
 | §3 | System architecture: palace hierarchy, ingestion, search, knowledge graph, AAAK, MCP |
 | §4 | Evaluation: LongMemEval, benchmark controversy, honest assessment, competitive comparison |
-| §5 | Discussion: novelty, marketing-science gap, cognitive science verdict, verbatim insight |
+| §5 | Discussion: novelty, marketing-science gap, cognitive science verdict, verbatim insight, post-analysis developments |
 | §6 | Related systems: Supermemory ASMR, Mem0, Zep/Graphiti, Mastra, Hindsight |
 | §7 | Framework for evaluating AI memory systems |
 | §8 | Conclusion and recommendations |
 | App A | Code statistics |
 | App B | Benchmark reproduction notes |
 | App C | Glossary |
+| App D | Disclosure |
 
 ---
 
