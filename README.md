@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/web3guru888-mempalace-scientific-analysis-badge.png)](https://mseep.ai/app/web3guru888-mempalace-scientific-analysis)
+
 # Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture
 
 [![arXiv](https://img.shields.io/badge/arXiv-cs.AI-b31b1b.svg)](https://arxiv.org/search/?searchtype=all&query=mempalace+spatial+metaphors)
